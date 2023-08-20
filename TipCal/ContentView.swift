@@ -2,25 +2,75 @@
 //  ContentView.swift
 //  TipCal
 //
-//  Created by pk on 20/08/23.
+//  Created by pk on 20/07/23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @State private var enteredAmount: String = ""
+    @State private var tipAmount: Double = 0
+    @State private var totalAmount: Double = 0
+    @State private var tipSlider: Double = 15
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Tests...")
+        VStack(spacing: 40){
+            VStack{
+                Text("Enter bill amount").foregroundColor(.secondary)
+                TextField("0.00",text: $enteredAmount)
+                    .font(.system(size: 70, weight: .semibold, design: .rounded))
+                    .keyboardType(.decimalPad)
+                    .multilineTextAlignment(.center)
+            }
+            Text("Tip:\(tipSlider, specifier: "%.0f")%")
+            Slider(value: $tipSlider, in: 0...100, step: 1)
+                .onChange(of: tipSlider) { _ in
+                    guard let amount = Double(enteredAmount) else {
+                        print("Invalid entry")
+                        return
+                    }
+                    
+                    guard let tip = Calculation().calculateTip(of: amount , tip: tipSlider) else {
+                        print("Bill amount of tip can not be negative")
+                        return
+                    }
+                tipAmount = tip
+                totalAmount = tipAmount + amount
+                }
+            VStack {
+                Text(tipAmount, format: .currency(code: "GBP"))
+                    .font(.title.bold())
+                Text("Tip")
+                    .foregroundColor(.secondary)
+                    .font(.caption)
+            }
+            .padding(.top, 20)
+            
+            VStack {
+                Text(totalAmount, format: .currency(code: "GBP"))
+                    .font(.title.bold())
+                Text("Total")
+                    .foregroundColor(.secondary)
+                    .font(.caption)
+            }
         }
-        .padding()
+        .padding(30)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct Calculation {
+    func calculateTip(of enteredAmount: Double, tip: Double) -> Double? {
+        guard enteredAmount >= 0 && tip >= 0 else {
+            return nil
+        }
+        let tipPercentage = tip / 100
+        
+        return enteredAmount * tipPercentage
     }
 }
