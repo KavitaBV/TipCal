@@ -14,7 +14,6 @@
 		4E32FB9B2A9244BF00A1633E /* TipCalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E32FB9A2A9244BF00A1633E /* TipCalTests.swift */; };
 		4E32FBA52A9244BF00A1633E /* TipCalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E32FBA42A9244BF00A1633E /* TipCalUITests.swift */; };
 		4E32FBA72A9244BF00A1633E /* TipCalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E32FBA62A9244BF00A1633E /* TipCalUITestsLaunchTests.swift */; };
-		4E32FBB42A92492E00A1633E /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E32FBB32A92492E00A1633E /* SecondView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +44,6 @@
 		4E32FBA02A9244BF00A1633E /* TipCalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E32FBA42A9244BF00A1633E /* TipCalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalUITests.swift; sourceTree = "<group>"; };
 		4E32FBA62A9244BF00A1633E /* TipCalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4E32FBB32A92492E00A1633E /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +98,6 @@
 				4E32FB8B2A9244BC00A1633E /* ContentView.swift */,
 				4E32FB8D2A9244BE00A1633E /* Assets.xcassets */,
 				4E32FB8F2A9244BE00A1633E /* Preview Content */,
-				4E32FBB32A92492E00A1633E /* SecondView.swift */,
 			);
 			path = TipCal;
 			sourceTree = "<group>";
@@ -260,7 +257,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E32FBB42A92492E00A1633E /* SecondView.swift in Sources */,
 				4E32FB8C2A9244BC00A1633E /* ContentView.swift in Sources */,
 				4E32FB8A2A9244BC00A1633E /* TipCalApp.swift in Sources */,
 			);
